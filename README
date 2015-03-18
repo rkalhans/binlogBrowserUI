@@ -1,0 +1,28 @@
+***BINLOG BROWSER V1.0****
+
+@Author Rohit Kalhans
+
+This project started as a hobby-project to leverage the BINLOG API
+for viewing the events in the binlog file using a GUI.
+
+The GUI is created using QT4.
+
+BUILDING AND COMPILING 
+======================
+
+it is a two step process
+0. Change the directory to the source directory 
+1. cmake . or cmake -DCMAKE_INSTALL_PREFIX='/path/to/install/directory/'
+2. make install 
+
+CLEANING UP
+==========
+use one of the two cleaning commands
+1. make clean 
+ this command cleans up the source of all the binaries and cmake files.
+2. make disclean
+  Cleans up the source code as it removes all the files which are not the part
+  of source code distro.
+
+ENJOY!
+

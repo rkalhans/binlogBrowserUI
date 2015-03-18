@@ -1,0 +1,44 @@
+PROJECT(MYSQL_BINLOG_BROWSER)
+CMAKE_MINIMUM_REQUIRED (VERSION 2.8)
+FIND_PACKAGE(Qt4 REQUIRED)
+FIND_PACKAGE(Replication REQUIRED)
+
+##
+# source files
+##
+SET(MYSQL_BINLOG_BROWSER_SOURCES binlog_browser.cc main.cc)
+SET(MYSQL_BINLOG_BROWSER_HEADERS binlog_browser.h)
+SET(MYSQL_BINLOG_BROWSER_FORMS MySQLbinlogbrowser.ui)
+SET(MYSQL_BINLOG_BROWSER_RESOURCES ../resource/resource.qrc)
+##
+# QT4 compilation steps
+##
+QT4_WRAP_CPP(MYSQL_BINLOG_BROWSER_HEADERS_MOC ${MYSQL_BINLOG_BROWSER_HEADERS})
+QT4_WRAP_UI(MYSQL_BINLOG_BROWSER_FORMS_HEADERS ${MYSQL_BINLOG_BROWSER_FORMS})
+QT4_ADD_RESOURCES(MYSQL_BINLOG_BROWSER_RESOURCES_RCC ${MYSQL_BINLOG_BROWSER_RESOURCES})
+INCLUDE(${QT_USE_FILE})
+ADD_DEFINITIONS(${QT_DEFINITIONS})
+##
+# INCLUDES
+##
+INCLUDE_DIRECTORIES(${MYSQL_INCLUDE_DIR}
+                    ${REPLICATION_INCLUDE_DIR}
+                    ${CMAKE_CURRENT_BINARY_DIR})
+##
+# Make targets
+##
+ADD_EXECUTABLE(mysql_binlog_browser
+               ${MYSQL_BINLOG_BROWSER_SOURCES} 
+               ${MYSQL_BINLOG_BROWSER_HEADERS_MOC} 
+               ${MYSQL_BINLOG_BROWSER_FORMS_HEADERS} 
+               ${MYSQL_BINLOG_BROWSER_RESOURCES_RCC})
+##
+# Link to the targets
+##
+TARGET_LINK_LIBRARIES(mysql_binlog_browser
+                      ${QT_LIBRARIES}
+                      pthread
+                      replication
+                      mysqlclient
+                     )
+INSTALL(TARGETS mysql_binlog_browser DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)

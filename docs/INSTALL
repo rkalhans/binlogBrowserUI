@@ -1,0 +1,20 @@
+#####################################################
+# AUTHOR Rohit Kalhans <rohit.kalhans@oracle.com>
+# BINLOG BROWSER v0.1
+#####################################################
+
+To use execute the mysql_binlog_browser available in bin folder of the install
+directory, or in the src folder of the source directory.
+
+open the shell and type 
+
+$> ./mysql_binlog_browser &
+
+type in url in the url box
+e.g
+For remote/local servers:
+                         mysql://root@localhost:13000
+For local binlog files:
+                         file:///home/user/Desktop/binlogs/mysql-bin.000001
+
+

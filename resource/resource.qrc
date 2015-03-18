@@ -1,0 +1,6 @@
+<RCC>
+  <qresource>
+    <file>mysqlTransparent.png</file>
+    <file alias="MySQLLogo">mysqlTransparent.png</file>
+  </qresource>
+</RCC>

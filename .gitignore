@@ -1,0 +1,16 @@
+CMakeCache.txt
+src/CMakeCache.txt
+*core
+*core*
+CMakeFiles
+src/CMakeFiles
+src/Makefile
+Makefile
+src/__
+src/moc_main.cxx
+src/qrc_resource.cxx
+src/ui_MySQLbinlogbrowser.h
+cmake_install.cmake
+src/cmake_install.cmake
+install_manifest.txt
+src/moc_binlog_browser.cxx
